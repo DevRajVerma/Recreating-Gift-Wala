@@ -112,11 +112,13 @@
     color: #555;
     font-size: 20px;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .social-icons a:hover {
     color: #000;
 }
+
 
 .footer-bottom {
     display: flex;

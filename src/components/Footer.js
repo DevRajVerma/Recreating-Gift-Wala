@@ -1,5 +1,8 @@
 import React from 'react';
 import './Footer.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
+import '../fontAwesome'
 
 const Footer = () => {
     return (
@@ -16,10 +19,10 @@ const Footer = () => {
                     <h3>SHOP.CO</h3>
                     <p>We have clothes that suit your style and which you're proud to wear. From women to men.</p>
                     <div className="social-icons">
-                        <a href="#"><i className="fab fa-twitter"></i></a>
-                        <a href="#"><i className="fab fa-facebook-f"></i></a>
-                        <a href="#"><i className="fab fa-instagram"></i></a>
-                        <a href="#"><i className="fab fa-pinterest-p"></i></a>
+                        <a href="#"><FontAwesomeIcon icon={['fab', 'twitter']} /></a>
+                        <a href="#"><FontAwesomeIcon icon={['fab', 'facebook-f']} /></a>
+                        <a href="#"><FontAwesomeIcon icon={['fab', 'instagram']} /></a>
+                        <a href="#"><FontAwesomeIcon icon={['fab', 'pinterest-p']} /></a>
                     </div>
                 </div>
                 <div className="footer-column">
@@ -62,11 +65,11 @@ const Footer = () => {
             <div className="footer-bottom">
                 <p>&copy; Shop.co 2000-2023, All Rights Reserved</p>
                 <div className="payment-methods">
-                    <img src="visa.png" alt="Visa" />
-                    <img src="mastercard.png" alt="MasterCard" />
-                    <img src="paypal.png" alt="PayPal" />
-                    <img src="apple-pay.png" alt="Apple Pay" />
-                    <img src="google-pay.png" alt="Google Pay" />
+                    <img src="./Payment/Visa.png" alt="Visa" />
+                    <img src="./Payment/mastercard.png" alt="MasterCard" />
+                    <img src="./Payment/paypal.png" alt="PayPal" />
+                    <img src="./Payment/Applepay.png" alt="Apple Pay" />
+                    <img src="./Payment/Gpay.png" alt="Google Pay" />
                 </div>
             </div>
         </footer>
