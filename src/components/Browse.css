@@ -1,3 +1,5 @@
+/* Browse.css */
+
 .browse-dress-style {
     text-align: center;
     padding: 40px 20px;
@@ -20,12 +22,14 @@
 
 .dress-style-item {
     position: relative;
-    width: 250px;
+    width: calc(33.33% - 20px); /* Adjust width for three items per row */
+    max-width: 250px; /* Limit max-width to maintain item size consistency */
     height: 350px;
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
+    margin-bottom: 20px; /* Add margin at bottom for spacing */
 }
 
 .dress-style-item img {
@@ -63,4 +67,11 @@
     font-size: 24px;
     font-weight: 700;
     text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .dress-style-item {
+        width: calc(50% - 20px); /* Adjust width for two items per row */
+        max-width: none; /* Reset max-width for flexibility */
+    }
 }

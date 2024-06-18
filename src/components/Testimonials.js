@@ -22,7 +22,7 @@ const testimonials = [
 
 const CustomerTestimonials = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const testimonialsToShow = 3;
+    const testimonialsToShow = 1;
 
     const handleNext = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
@@ -36,7 +36,6 @@ const CustomerTestimonials = () => {
         <div className="customer-testimonials">
             <h2>Our Happy Customers</h2>
             <div className="testimonial-container">
-                <button className="nav-button" onClick={handlePrev}>&#8249;</button>
                 <div className="testimonials-wrapper">
                     {testimonials.slice(currentIndex, currentIndex + testimonialsToShow).map((testimonial, index) => (
                         <div className="testimonial" key={index}>
@@ -48,7 +47,10 @@ const CustomerTestimonials = () => {
                         </div>
                     ))}
                 </div>
-                <button className="nav-button" onClick={handleNext}>&#8250;</button>
+                <div className="nav-buttons">
+                    <button className="nav-button" onClick={handlePrev} disabled={currentIndex === 0}>&#8249;</button>
+                    <button className="nav-button" onClick={handleNext} disabled={currentIndex >= testimonials.length - testimonialsToShow}>&#8250;</button>
+                </div>
             </div>
         </div>
     );

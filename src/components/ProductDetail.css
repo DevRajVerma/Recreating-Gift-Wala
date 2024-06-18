@@ -1,0 +1,150 @@
+/* src/ProductDetail.css */
+
+.product-detail {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.images {
+  margin-bottom: 20px;
+}
+
+.main-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.thumbnails img {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  cursor: pointer;
+  scroll-snap-align: start;
+}
+
+.details {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.product-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.rating {
+  font-size: 18px;
+  color: #ffc107;
+  margin-bottom: 10px;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.current-price {
+  font-size: 24px;
+  color: #ff0000;
+  margin-right: 10px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #888;
+  margin-right: 10px;
+}
+
+.discount {
+  color: #008000;
+}
+
+.description {
+  margin-bottom: 20px;
+}
+
+.options {
+  margin-bottom: 20px;
+}
+
+.colors,
+.sizes,
+.quantity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.colors span,
+.sizes span,
+.quantity span {
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  border-color: #000;
+}
+
+button.selected {
+  border: 2px solid #000;
+}
+
+.add-to-cart {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.add-to-cart:hover {
+  background: #333;
+}
+
+@media (min-width: 768px) {
+  .product-detail {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .images {
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+
+  .thumbnails {
+    flex: 1;
+    justify-content: flex-start;
+    overflow-x: hidden;
+  }
+}

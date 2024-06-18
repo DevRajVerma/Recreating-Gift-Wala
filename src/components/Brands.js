@@ -1,27 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import './Brands.css'; // Import external CSS file
 
 const FooterContainer = styled.footer`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 1rem;
-  background-color: #000;
-  color: #fff;
+  /* Any additional styles using styled-components can go here */
 `;
 
 const BrandLogo = styled.img`
-  height: 40px;
-  margin: 0 1rem;
+  /* Any additional styles for BrandLogo using styled-components */
 `;
 
 const Footer = () => (
-  <FooterContainer>
-    <BrandLogo src="./Brands/Versace.png" alt="Versace" />
-    <BrandLogo src="./Brands/Zara.png" alt="Zara" />
-    <BrandLogo src="./Brands/Gucci.png" alt="Gucci" />
-    <BrandLogo src="./Brands/Prada.png" alt="Prada" />
-    <BrandLogo src="./Brands/Calvin.png" alt="Calvin Klein" />
+  <FooterContainer className="footer-container">
+    <BrandLogo src="./Brands/Versace.png" alt="Versace" className="footer-logo" />
+    <BrandLogo src="./Brands/Zara.png" alt="Zara" className="footer-logo" />
+    <BrandLogo src="./Brands/Gucci.png" alt="Gucci" className="footer-logo" />
+    <BrandLogo src="./Brands/Prada.png" alt="Prada" className="footer-logo" />
+    <BrandLogo src="./Brands/Calvin.png" alt="Calvin Klein" className="footer-logo" />
   </FooterContainer>
 );
 

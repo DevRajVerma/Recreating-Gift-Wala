@@ -7,6 +7,7 @@ import Brands from './components/Brands';
 import Browse from './components/Browse';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
+import ProductDetail from './components/ProductDetail';
 
 // Sample data for products
 const newArrivals = [
@@ -28,7 +29,8 @@ const AppContainer = styled.div`
 `;
 
 const App = () => (
-  <AppContainer>
+  <AppContainer >
+    <div style={{ overflow: 'hidden' }}>
     <Header />
     <MainCover />
     <Brands />
@@ -36,7 +38,10 @@ const App = () => (
     <ProductSection title="Top Selling" products={topSelling} />
     <Browse />
     <Testimonials />
+    <ProductDetail />
     <Footer />
+    </div>
+    
   </AppContainer>
 );
 

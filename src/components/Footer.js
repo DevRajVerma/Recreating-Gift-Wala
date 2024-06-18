@@ -1,8 +1,6 @@
 import React from 'react';
 import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
-import '../fontAwesome'
 
 const Footer = () => {
     return (
@@ -63,7 +61,6 @@ const Footer = () => {
                 </div>
             </div>
             <div className="footer-bottom">
-                <p>&copy; Shop.co 2000-2023, All Rights Reserved</p>
                 <div className="payment-methods">
                     <img src="./Payment/Visa.png" alt="Visa" />
                     <img src="./Payment/mastercard.png" alt="MasterCard" />
@@ -71,6 +68,7 @@ const Footer = () => {
                     <img src="./Payment/Applepay.png" alt="Apple Pay" />
                     <img src="./Payment/Gpay.png" alt="Google Pay" />
                 </div>
+                <p>&copy; Shop.co 2000-2023, All Rights Reserved</p>
             </div>
         </footer>
     );

@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import coverImage from '../assets/cover-image.png';
+import './MainCover.css';
 
+
+// Styled components
 const CoverContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 2rem;
   text-align: center;
   background: url(${coverImage}) no-repeat center center;
@@ -13,6 +17,10 @@ const CoverContainer = styled.div`
   color: #fff;
   height: 100vh;
   position: relative;
+
+  @media (max-width: 768px) {
+    height: 80vh;
+  }
 `;
 
 const Overlay = styled.div`
@@ -33,11 +41,21 @@ const Title = styled.h1`
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  line-height: 1.2;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const Subtitle = styled.p`
-  font-size: 1rem;
+  font-size: 1.25rem;
   margin-bottom: 2rem;
+  line-height: 1.5;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const ShopButton = styled.button`
@@ -48,6 +66,7 @@ const ShopButton = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 
   &:hover {
     background-color: #333;
@@ -59,23 +78,34 @@ const StatsContainer = styled.div`
   justify-content: space-around;
   margin-top: 2rem;
   width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Stat = styled.div`
-  font-size: 1rem;
   text-align: center;
+  margin-bottom: 1rem;
 `;
 
 const StatNumber = styled.p`
   font-size: 2rem;
   font-weight: bold;
+  margin-bottom: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
+// MainCover component
 const MainCover = () => (
   <CoverContainer>
     <Overlay />
     <Content>
-      <Title>FIND CLOTHES THAT MATCHES YOUR STYLE</Title>
+      <Title>FIND CLOTHES THAT MATCH YOUR STYLE</Title>
       <Subtitle>
         Browse through our diverse range of meticulously crafted garments, designed
         to bring out your individuality and cater to your sense of style.

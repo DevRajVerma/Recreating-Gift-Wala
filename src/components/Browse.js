@@ -1,5 +1,5 @@
 import React from 'react';
-import './Browse.css';
+import './Browse.css'; // Import CSS file
 
 const BrowseByDressStyle = () => {
     return (

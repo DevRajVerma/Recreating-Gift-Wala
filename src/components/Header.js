@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faUser, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
+// Styled components
 const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
@@ -10,6 +11,10 @@ const HeaderContainer = styled.header`
   padding: 1rem 2rem;
   background-color: #fff;
   border-bottom: 1px solid #eaeaea;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const Logo = styled.h1`
@@ -20,53 +25,69 @@ const Logo = styled.h1`
 const NavLinks = styled.nav`
   display: flex;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0.5rem;
+    position: absolute;
+    top: 60px; /* Adjust as needed */
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding: 1rem;
+    z-index: 1000;
+    transform: ${({ isOpen }) => (isOpen ? 'translateY(0)' : 'translateY(-100%)')};
+    opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
+    pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
 `;
 
 const NavLink = styled.a`
   text-decoration: none;
   color: #333;
   font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
-const SearchBarContainer = styled.div`
-  display: flex;
-  align-items: center;
-  background-color: #f0f0f0;
-  border-radius: 20px;
-  padding: 0.5rem;
+const MenuIcon = styled.div`
+  display: none;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    display: block;
+  }
 `;
 
-const SearchBar = styled.input`
-  padding: 0.5rem;
-  border: none;
-  background: transparent;
-  outline: none;
-  flex-grow: 1;
-`;
+// Header component
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-const IconContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-`;
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
-const Header = () => (
-  <HeaderContainer>
-    <Logo>SHOP.CO</Logo>
-    <NavLinks>
-      <NavLink href="#">Shop</NavLink>
-      <NavLink href="#">On Sale</NavLink>
-      <NavLink href="#">New Arrivals</NavLink>
-      <NavLink href="#">Brands</NavLink>
-    </NavLinks>
-    <SearchBarContainer>
-      <SearchBar type="text" placeholder="Search for products..." />
-    </SearchBarContainer>
-    <IconContainer>
-      <FontAwesomeIcon icon={faShoppingCart} size="lg" />
-      <FontAwesomeIcon icon={faUser} size="lg" />
-    </IconContainer>
-  </HeaderContainer>
-);
+  return (
+    <HeaderContainer>
+      <Logo>SHOP.CO</Logo>
+      <NavLinks isOpen={isOpen}>
+        <NavLink href="#">Shop</NavLink>
+        <NavLink href="#">On Sale</NavLink>
+        <NavLink href="#">New Arrivals</NavLink>
+        <NavLink href="#">Brands</NavLink>
+      </NavLinks>
+      <MenuIcon onClick={toggleMenu}>
+        <FontAwesomeIcon icon={isOpen ? faTimes : faBars} size="lg" />
+      </MenuIcon>
+      <div>
+        <FontAwesomeIcon icon={faShoppingCart} size="lg" style={{ marginRight: '1rem' }} />
+        <FontAwesomeIcon icon={faUser} size="lg" />
+      </div>
+    </HeaderContainer>
+  );
+};
 
 export default Header;
