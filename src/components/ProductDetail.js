@@ -1,6 +1,7 @@
 // src/ProductDetail.js
 import React, { useState } from 'react';
 import './ProductDetail.css';
+import Reviews from './Reviews';
 import mainImage from '../ProductDetail/main.png';
 import thumbnail1 from '../ProductDetail/1.png';
 import thumbnail2 from '../ProductDetail/2.png';
@@ -67,6 +68,8 @@ const ProductDetail = () => {
         </div>
         <button className="add-to-cart">Add to Cart</button>
       </div>
+
+      <Reviews />
     </div>
   );
 };

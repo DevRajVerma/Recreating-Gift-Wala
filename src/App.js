@@ -1,4 +1,5 @@
 import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from './components/Header';
 import MainCover from './components/MainCover';
@@ -28,21 +29,33 @@ const AppContainer = styled.div`
   font-family: Arial, sans-serif;
 `;
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <>
+        <MainCover />
+        <Brands />
+        <ProductSection title="New Arrivals" products={newArrivals} />
+        <ProductSection title="Top Selling" products={topSelling} />
+        <Browse />
+        <Testimonials />
+      </>
+    ),
+  },
+  {
+    path: "/product-detail/:id",
+    element: <ProductDetail />,
+  },
+]);
+
 const App = () => (
-  <AppContainer >
-    <div style={{ overflow: 'hidden' }}>
+  <AppContainer>
     <Header />
-    <MainCover />
-    <Brands />
-    <ProductSection title="New Arrivals" products={newArrivals} />
-    <ProductSection title="Top Selling" products={topSelling} />
-    <Browse />
-    <Testimonials />
-    <ProductDetail />
+    <RouterProvider router={router} />
     <Footer />
-    </div>
-    
   </AppContainer>
 );
 
 export default App;
+
