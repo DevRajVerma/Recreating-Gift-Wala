@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const ProductCard = styled.div`
   background-color: #fff;
@@ -47,6 +48,8 @@ const ProductRating = styled.div`
 
 const Product = ({ product }) => (
   <ProductCard>
+    
+    <Link to={`/product-detail/${product.id}`}>
     <ProductImage src={product.image} alt={product.name} />
     <ProductName>{product.name}</ProductName>
     <ProductPrice>
@@ -60,6 +63,7 @@ const Product = ({ product }) => (
       {product.rating % 1 !== 0 && <span>&#9734;</span>}
       ({product.rating})
     </ProductRating>
+    </Link>
   </ProductCard>
 );
 

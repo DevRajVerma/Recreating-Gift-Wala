@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './ProductDetail.css';
 import Reviews from './Reviews';
+import SuggestedProducts from './SuggestedProducts';
 import mainImage from '../ProductDetail/main.png';
 import thumbnail1 from '../ProductDetail/1.png';
 import thumbnail2 from '../ProductDetail/2.png';
@@ -25,6 +26,7 @@ const ProductDetail = () => {
   };
 
   return (
+    <div className="product-detail-container">
     <div className="product-detail">
       <div className="images">
         <img src={mainImage} alt="Main" className="main-image" />
@@ -69,8 +71,13 @@ const ProductDetail = () => {
         <button className="add-to-cart">Add to Cart</button>
       </div>
 
-      <Reviews />
+      
     </div>
+
+<Reviews />
+
+<SuggestedProducts />
+</div>
   );
 };
 

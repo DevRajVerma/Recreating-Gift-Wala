@@ -147,4 +147,91 @@ button.selected {
     justify-content: flex-start;
     overflow-x: hidden;
   }
+
+  .details {
+    flex: 2;
+  }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .product-title {
+    font-size: 24px;
+  }
+
+  .rating {
+    font-size: 16px;
+  }
+
+  .price {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .current-price {
+    font-size: 20px;
+  }
+
+  .original-price {
+    font-size: 14px;
+  }
+
+  .discount {
+    font-size: 14px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .add-to-cart {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-title {
+    font-size: 20px;
+  }
+
+  .rating {
+    font-size: 14px;
+  }
+
+  .price {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .current-price {
+    font-size: 18px;
+  }
+
+  .original-price {
+    font-size: 12px;
+  }
+
+  .discount {
+    font-size: 12px;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .add-to-cart {
+    font-size: 12px;
+    padding: 10px;
+  }
 }

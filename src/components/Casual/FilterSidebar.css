@@ -1,0 +1,116 @@
+.filter-sidebar {
+  width: 260px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 20px;
+}
+
+.filter-sidebar h2 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.filter-section {
+  margin-bottom: 25px;
+}
+
+.filter-section h3 {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.filter-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.filter-section ul li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.filter-section ul li input[type="checkbox"] {
+  margin-right: 12px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.filter-section ul li label {
+  font-size: 1rem;
+  color: #444;
+  cursor: pointer;
+}
+
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.color-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ddd;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.color-circle:hover {
+  transform: scale(1.1);
+  border-color: #333;
+}
+
+.color-circle.red { background-color: #e74c3c; }
+.color-circle.blue { background-color: #3498db; }
+/* Add other color styles here */
+
+/* Enhancing the Size Selection */
+.filter-section ul li button {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  text-align: center;
+}
+
+.filter-section ul li button:not(.selected):hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.filter-section ul li button.selected {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+}
+
+.filter-section ul li button.selected:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Range Slider Styling */
+.filter-section input[type="range"] {
+  width: 100%;
+  margin-top: 15px;
+  cursor: pointer;
+}
+

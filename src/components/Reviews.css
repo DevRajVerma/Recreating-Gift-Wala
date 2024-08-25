@@ -1,48 +1,111 @@
 /* src/Reviews.css */
 .reviews-section {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
+  margin-top: 30px;
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive header size */
+.reviews-section h2 {
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #222222;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.review {
+  padding: 20px;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 20px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.review:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.review:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.review-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333333;
+}
+
+.review-rating {
+  font-size: 18px;
+  color: #ffc107;
+}
+
+.review-comment {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555555;
+  margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
   .reviews-section h2 {
-    margin-bottom: 20px;
     font-size: 24px;
-    font-weight: bold;
-    color: #333;
   }
-  
+
   .review {
     padding: 15px;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 15px;
   }
-  
-  .review:last-child {
-    border-bottom: none;
-  }
-  
-  .review-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
+
   .review-name {
-    font-weight: bold;
-    color: #555;
+    font-size: 14px;
   }
-  
+
   .review-rating {
     font-size: 16px;
-    color: #ff9800;
   }
-  
+
   .review-comment {
     font-size: 14px;
-    color: #666;
   }
-  
+}
+
+@media screen and (max-width: 480px) {
+  .reviews-section {
+    padding: 15px;
+  }
+
+  .reviews-section h2 {
+    font-size: 20px;
+  }
+
+  .review {
+    padding: 10px;
+  }
+
+  .review-name {
+    font-size: 12px;
+  }
+
+  .review-rating {
+    font-size: 14px;
+  }
+
+  .review-comment {
+    font-size: 12px;
+  }
+}

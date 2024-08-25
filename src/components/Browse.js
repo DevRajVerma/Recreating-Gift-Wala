@@ -1,16 +1,21 @@
 import React from 'react';
-import './Browse.css'; // Import CSS file
+import './Browse.css'; // Import CSS 
+import { Link } from 'react-router-dom';
 
 const BrowseByDressStyle = () => {
     return (
         <div className="browse-dress-style">
             <h2>Browse by Dress Style</h2>
+            
             <div className="dress-style-grid">
+                
                 <div className="dress-style-item">
+                <Link to="/casual">
                     <img src="./Browse/casual.png" alt="Casual" />
                     <div className="overlay">
                         <p>Casual</p>
                     </div>
+                    </Link>
                 </div>
                 <div className="dress-style-item">
                     <img src="./Browse/formal.png" alt="Formal" />

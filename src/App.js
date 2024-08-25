@@ -9,6 +9,8 @@ import Browse from './components/Browse';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import ProductDetail from './components/ProductDetail';
+// import Casual from './components/Casual';
+import CasualPage from './components/CasualPage';
 
 // Sample data for products
 const newArrivals = [
@@ -46,6 +48,10 @@ const router = createBrowserRouter([
   {
     path: "/product-detail/:id",
     element: <ProductDetail />,
+  },
+  {
+    path: "/casual",
+    element: <CasualPage />,
   },
 ]);
 
