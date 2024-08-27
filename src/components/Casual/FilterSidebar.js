@@ -1,10 +1,11 @@
 import React from 'react';
 import './FilterSidebar.css';
 
-const FilterSidebar = () => {
+const FilterSidebar = ({ show, toggleFilters }) => {
   return (
-    <aside className="filter-sidebar">
+    <aside className={`filter-sidebar ${show ? 'show' : 'hidden'}`}>
       <h2>Filters</h2>
+      <button className="close-filter-button" onClick={toggleFilters}>Close Filters</button>
       <div className="filter-section">
         <h3>Categories</h3>
         <ul>
@@ -15,22 +16,17 @@ const FilterSidebar = () => {
           <li><input type="checkbox" id="jeans" /> <label htmlFor="jeans">Jeans</label></li>
         </ul>
       </div>
-
       <div className="filter-section">
         <h3>Price</h3>
         <input type="range" min="50" max="200" />
       </div>
-
       <div className="filter-section">
         <h3>Colors</h3>
         <div className="color-options">
-          {/* Add color options here */}
           <div className="color-circle red"></div>
           <div className="color-circle blue"></div>
-          {/* More colors */}
         </div>
       </div>
-
       <div className="filter-section">
         <h3>Size</h3>
         <ul>
@@ -38,7 +34,6 @@ const FilterSidebar = () => {
           <li><button>Medium</button></li>
           <li><button className="selected">Large</button></li>
           <li><button>X-Large</button></li>
-          {/* More sizes */}
         </ul>
       </div>
     </aside>

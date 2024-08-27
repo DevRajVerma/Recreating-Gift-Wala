@@ -5,10 +5,10 @@ import SortingBar from './Casual/SortingBar';
 import './CasualPage.css';
 
 const CasualPage = () => {
-  const [isFilterVisible, setIsFilterVisible] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
 
-  const toggleFilterVisibility = () => {
-    setIsFilterVisible(!isFilterVisible);
+  const toggleFilters = () => {
+    setShowFilters(!showFilters);
   };
 
   return (
@@ -17,23 +17,10 @@ const CasualPage = () => {
         <h1>Casual</h1>
       </header>
       <div className="casual-content">
-        {/* Toggle button for mobile view */}
-        <button
-          className="filter-toggle-btn"
-          onClick={toggleFilterVisibility}
-        >
-          {isFilterVisible ? 'Hide Filters' : 'Show Filters'}
+        <button className="toggle-filter-button" onClick={toggleFilters}>
+          {showFilters ? 'Hide Filters' : 'Show Filters'}
         </button>
-        
-        {/* FilterSidebar */}
-        <div
-          className={`filter-sidebar ${
-            isFilterVisible ? 'show' : 'hide'
-          }`}
-        >
-          <FilterSidebar />
-        </div>
-        
+        <FilterSidebar show={showFilters} toggleFilters={toggleFilters} />
         <div className="main-content">
           <SortingBar />
           <ProductGrid />

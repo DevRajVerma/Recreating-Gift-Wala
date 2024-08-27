@@ -38,13 +38,19 @@
 }
 
 .filter-sidebar {
-  width: 250px;
+  width: 260px;
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid #e0e0e0;
   padding: 20px;
-  border-radius: 8px;
-  flex: 1;
-  transition: max-height 0.3s ease; /* Smooth transition for the dropdown */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
 }
 
 .filter-sidebar.hidden{
@@ -54,9 +60,9 @@
 }
 
 /* Show filter sidebar when button is clicked */
+/* Show the sidebar when the "show" class is added */
 .filter-sidebar.show {
-  max-height: 500px; /* Adjust based on your content's height */
-  opacity: 1;
+  transform: translateX(0);
 }
 
 .filter-toggle-btn {
@@ -84,18 +90,16 @@
   }
 
   .filter-sidebar {
-    max-height: 0; /* Initially hidden on mobile */
-    overflow: hidden;
-    opacity: 0;
+    position: sticky;
+    top: 20px;
+    transform: none;
+    height: auto;
+    z-index: 1000;
   }
 
-  .filter-sidebar.show {
-    max-height: 500px; /* Show when button is clicked */
-    opacity: 1;
-  }
-
-  .filter-toggle-btn {
-    display: block;
+  /* Remove the button on larger screens */
+  .toggle-filter-button {
+    display: none;
   }
 }
 
@@ -104,4 +108,20 @@
   .filter-sidebar {
     display: block;
   }
+}
+
+/* Additional styles for the toggle button */
+.toggle-filter-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.toggle-filter-button:hover {
+  background-color: #0056b3;
 }
