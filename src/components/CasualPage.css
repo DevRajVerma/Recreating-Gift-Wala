@@ -89,13 +89,13 @@
     flex-direction: column;
   }
 
-  .filter-sidebar {
+  /* .filter-sidebar {
     position: sticky;
     top: 20px;
     transform: none;
     height: auto;
     z-index: 1000;
-  }
+  } */
 
   /* Remove the button on larger screens */
   .toggle-filter-button {

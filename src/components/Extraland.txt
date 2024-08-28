@@ -1,74 +1,100 @@
-/* Base styles for the filter sidebar */
-.filter-sidebar {
-  width: 260px;
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart, faUser, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+
+// Styled components
+const HeaderContainer = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
   background-color: #fff;
-  border: 1px solid #e0e0e0;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  z-index: 1000;
-  transform: translateX(-100%); /* Sidebar is hidden off-screen */
-  transition: transform 0.3s ease-in-out;
-}
+  border-bottom: 1px solid #eaeaea;
 
-/* Show the sidebar when the "show" class is added */
-.filter-sidebar.show {
-  transform: translateX(0); /* Sidebar is visible on-screen */
-}
-
-.filter-sidebar.hidden {
-  transform: translateX(-100%); /* Explicitly hides the sidebar */
-}
-
-/* Media query for desktop screens */
-@media (min-width: 768px) {
-  .filter-sidebar {
-    position: sticky;
-    top: 20px;
-    transform: none;
-    height: auto;
-    z-index: auto;
+  @media (max-width: 768px) {
+    padding: 1rem;
   }
+`;
 
-  /* Hide the toggle button on larger screens */
-  .toggle-filter-button {
-    display: none;
+const Logo = styled(Link)`  // Updated this line
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
   }
-}
+`;
 
-.close-filter-button {
+const NavLinks = styled.nav`
+  display: flex;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0.5rem;
+    position: absolute;
+    top: 60px; /* Adjust as needed */
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding: 1rem;
+    z-index: 1000;
+    transform: ${({ isOpen }) => (isOpen ? 'translateY(0)' : 'translateY(-100%)')};
+    opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
+    pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+`;
+
+const NavLink = styled.a`
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const MenuIcon = styled.div`
   display: none;
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
   cursor: pointer;
-  margin-bottom: 20px;
-}
-
-@media (max-width: 767px) {
-  .close-filter-button {
-    display: inline-block;
+  @media (max-width: 768px) {
+    display: block;
   }
-}
+`;
 
-/* Additional styles for the toggle button */
-.toggle-filter-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
+// Header component
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-.toggle-filter-button:hover {
-  background-color: #0056b3;
-}
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <HeaderContainer>
+      <Logo to="/">SHOP.CO</Logo> {/* Updated this line */}
+      <NavLinks isOpen={isOpen}>
+        <NavLink href="#">Shop</NavLink>
+        <NavLink href="#">On Sale</NavLink>
+        <NavLink href="#">New Arrivals</NavLink>
+        <NavLink href="#">Brands</NavLink>
+      </NavLinks>
+      <MenuIcon onClick={toggleMenu}>
+        <FontAwesomeIcon icon={isOpen ? faTimes : faBars} size="lg" />
+      </MenuIcon>
+      <div>
+        <FontAwesomeIcon icon={faShoppingCart} size="lg" style={{ marginRight: '1rem' }} />
+        <FontAwesomeIcon icon={faUser} size="lg" />
+      </div>
+    </HeaderContainer>
+  );
+};
+
+export default Header;
