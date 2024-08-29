@@ -74,8 +74,10 @@ const Header = () => {
   return (
     <HeaderContainer>
       
-      
+      <Link to="/">
       <Logo>SHOP.CO</Logo>
+      </Link>
+      
       <NavLinks isOpen={isOpen}>
         <NavLink href="#">Shop</NavLink>
         <NavLink href="#">On Sale</NavLink>
@@ -86,7 +88,12 @@ const Header = () => {
         <FontAwesomeIcon icon={isOpen ? faTimes : faBars} size="lg" />
       </MenuIcon>
       <div>
+
+        <Link to="/cart">
         <FontAwesomeIcon icon={faShoppingCart} size="lg" style={{ marginRight: '1rem' }} />
+        </Link>
+        
+        
         <FontAwesomeIcon icon={faUser} size="lg" />
       </div>
     </HeaderContainer>

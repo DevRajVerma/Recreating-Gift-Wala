@@ -13,9 +13,9 @@ const CasualPage = () => {
 
   return (
     <div className="casual-page">
-      <header className="casual-header">
+      <div className="casual-header">
         <h1>Casual</h1>
-      </header>
+      </div>
       <div className="casual-content">
         <button className="toggle-filter-button" onClick={toggleFilters}>
           {showFilters ? 'Hide Filters' : 'Show Filters'}

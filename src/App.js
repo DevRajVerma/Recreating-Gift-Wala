@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import ProductDetail from './components/ProductDetail';
 // import Casual from './components/Casual';
 import CasualPage from './components/CasualPage';
+import Cart from './components/Cart/Cart';
 
 // Sample data for products
 const newArrivals = [
@@ -36,30 +37,58 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <>
+        <Header />
         <MainCover />
         <Brands />
         <ProductSection title="New Arrivals" products={newArrivals} />
         <ProductSection title="Top Selling" products={topSelling} />
         <Browse />
         <Testimonials />
+        <Footer />
       </>
     ),
   },
   {
     path: "/product-detail/:id",
-    element: <ProductDetail />,
+    element:
+      <>
+        <Header />
+
+        <ProductDetail />
+
+        <Footer />
+      </>,
   },
   {
     path: "/casual",
-    element: <CasualPage />,
+    element:
+      <>
+        <Header />
+        <CasualPage />
+        <ProductDetail />
+        {/* <Cart /> */}
+        <Footer />
+      </>,
+  },
+
+  {
+    path: "/cart",
+
+    element:
+      <>
+        <Header />
+        {/* <CasualPage /> */}
+        <Cart />
+        <Footer />
+      </>,
   },
 ]);
 
 const App = () => (
   <AppContainer>
-    <Header />
+
     <RouterProvider router={router} />
-    <Footer />
+
   </AppContainer>
 );
 
