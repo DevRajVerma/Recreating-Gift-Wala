@@ -46,24 +46,32 @@ const ProductRating = styled.div`
   margin: 0.5rem 0;
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+`;
+
 const Product = ({ product }) => (
   <ProductCard>
-    
-    <Link to={`/product-detail/${product.id}`}>
-    <ProductImage src={product.image} alt={product.name} />
-    <ProductName>{product.name}</ProductName>
-    <ProductPrice>
-      ${product.price} 
-      {product.oldPrice && <ProductOldPrice>${product.oldPrice}</ProductOldPrice>}
-    </ProductPrice>
-    <ProductRating>
-      {Array.from({ length: Math.floor(product.rating) }).map((_, index) => (
-        <span key={index}>&#9733;</span>
-      ))}
-      {product.rating % 1 !== 0 && <span>&#9734;</span>}
-      ({product.rating})
-    </ProductRating>
-    </Link>
+    <StyledLink to={`/product-detail/${product.id}`}>
+      <ProductImage src={product.image} alt={product.name} />
+      <ProductName>{product.name}</ProductName>
+      <ProductPrice>
+        ${product.price}
+        {product.oldPrice && <ProductOldPrice>${product.oldPrice}</ProductOldPrice>}
+      </ProductPrice>
+      <ProductRating>
+        {Array.from({ length: Math.floor(product.rating) }).map((_, index) => (
+          <span key={index}>&#9733;</span>
+        ))}
+        {product.rating % 1 !== 0 && <span>&#9734;</span>}
+        ({product.rating})
+      </ProductRating>
+    </StyledLink>
   </ProductCard>
 );
 

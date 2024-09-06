@@ -18,9 +18,15 @@ const HeaderContainer = styled.header`
   }
 `;
 
-const Logo = styled.h1`
+const Logo = styled(Link)`
   font-size: 1.5rem;
   font-weight: bold;
+  text-decoration: none;
+  color: #333;
+
+  &:hover {
+    text-decoration: none;
+  }
 `;
 
 const NavLinks = styled.nav`
@@ -31,7 +37,7 @@ const NavLinks = styled.nav`
     flex-direction: column;
     gap: 0.5rem;
     position: absolute;
-    top: 60px; /* Adjust as needed */
+    top: 60px;
     left: 0;
     background-color: #fff;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -45,7 +51,7 @@ const NavLinks = styled.nav`
   }
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(Link)`
   text-decoration: none;
   color: #333;
   font-weight: 500;
@@ -63,6 +69,15 @@ const MenuIcon = styled.div`
   }
 `;
 
+const IconLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+  }
+`;
+
 // Header component
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,28 +88,27 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      
-      <Link to="/">
-      <Logo>SHOP.CO</Logo>
-      </Link>
-      
+      <Logo to="/">SHOP.CO</Logo>
+
       <NavLinks isOpen={isOpen}>
-        <NavLink href="#">Shop</NavLink>
-        <NavLink href="#">On Sale</NavLink>
-        <NavLink href="#">New Arrivals</NavLink>
-        <NavLink href="#">Brands</NavLink>
+        <NavLink to="#">Shop</NavLink>
+        <NavLink to="#">On Sale</NavLink>
+        <NavLink to="#">New Arrivals</NavLink>
+        <NavLink to="#">Brands</NavLink>
       </NavLinks>
+      
       <MenuIcon onClick={toggleMenu}>
         <FontAwesomeIcon icon={isOpen ? faTimes : faBars} size="lg" />
       </MenuIcon>
+      
       <div>
+        <IconLink to="/cart">
+          <FontAwesomeIcon icon={faShoppingCart} size="lg" style={{ marginRight: '1rem' }} />
+        </IconLink>
 
-        <Link to="/cart">
-        <FontAwesomeIcon icon={faShoppingCart} size="lg" style={{ marginRight: '1rem' }} />
-        </Link>
-        
-        
-        <FontAwesomeIcon icon={faUser} size="lg" />
+        <IconLink to="/profile">
+          <FontAwesomeIcon icon={faUser} size="lg" />
+        </IconLink>
       </div>
     </HeaderContainer>
   );

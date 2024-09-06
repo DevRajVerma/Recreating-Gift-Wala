@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom'; // Import the Link component
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -10,9 +10,7 @@ const Footer = () => {
                 <h2>Stay up to date about our latest offers</h2>
                 <div className="newsletter-input">
                     <input type="email" placeholder="Enter your email address" />
-                    <Link to="/cart"> {/* Add Link tag here */}
-                        <button type="button">Subscribe to Newsletter</button>
-                    </Link>
+                    <button type="button">Subscribe</button>
                 </div>
             </div>
             <div className="footer-content">
